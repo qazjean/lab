@@ -25,6 +25,7 @@ class Student(Person):
         print(f"id студента: {self.student_id}")
         print(f"Его средний балл: {self.get_average()}")
         print(f"Его оценки: {", ".join(map(str, self.grades))}")
+        print()
 
 
 
@@ -38,11 +39,11 @@ class Teacher(Person):
     def remove_student(self, student: Student):
         self.students.remove(student)
     def list_students(self):
-        print(f"Учитель {self.name} ведет у следующих студентов: {", ".join(map(str, list(self.students)))}")
+        print(f"Учитель {self.name} ведет {self.subject} у следующих студентов:")
+        for s in self.students:
+            s.display_info()
 
 teach = Teacher("Прощаев Александр Аркадьевич", 30, "Базы данных")
-student = Student("Лизочка Пронина", 18)
+student = Student("Лизочка Пронина", 18, 100)
 teach.add_student(student)
 teach.list_students()
-
-
