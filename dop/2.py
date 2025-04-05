@@ -8,9 +8,9 @@ with open('students.csv', encoding='utf-8') as f:
         s['Средний балл'] = float(s['Средний балл'])
 
 # Используем ранее созданные методы
-top_students = get_top_students(students, 4)
+top_students = get_top_students(students, 4) #к тпримеру, мы хотим топ 4 студента
 average_age = get_average_age(students)
-filtered_students = filter_students_by_grade(students, 4.5)
+filtered_students = filter_students_by_grade(students, 4.5) #и балл выше 4.5 хотим
 
 # Сортируем по возрасту
 sorted_by_age = sorted(students, key=lambda x: x['Возраст'])
