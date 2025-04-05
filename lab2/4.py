@@ -4,6 +4,7 @@ emails = re.findall(r'[a-zA-Z0-9*&._+%-]+@[a-zA-Z]+\.[a-zA-Z]{2,4}', a)
 phones = re.findall(r'\+7-\d{3}-\d{3}-\d{2}-\d{2}', a)
 capital_words = re.findall(r'\b[A-ZА-ЯЁ][a-zа-яё]*\b', a)
 t1 = open("emails.txt", "w", encoding='utf-8')
+#сохраняем данные
 for email in emails:
     t1.write(email + '\n')
 t2 = open("phones.txt", "w", encoding='utf-8')
