@@ -131,7 +131,6 @@ class Store:
                 report.append(f"{item['name']} ({item['quantity']} шт.) - {item['total_price']:.2f} руб.")
         return "\n".join(report)
 
-
 class Customer:
     def __init__(self, store):
         self.store = store
@@ -239,7 +238,6 @@ class Customer:
 
         self.cart = []
 
-
 def admin_menu(store):
     attempts = 3
     while attempts > 0:
@@ -316,7 +314,6 @@ def admin_menu(store):
         else:
             print("Неверный ввод. Пожалуйста, выберите действие от 1 до 8.")
 
-
 def customer_menu(store):
     customer = Customer(store)
 
@@ -344,7 +341,6 @@ def customer_menu(store):
         else:
             print("Неверный ввод. Пожалуйста, выберите действие от 1 до 5.")
 
-
 def main():
     store = Store()
 
@@ -366,6 +362,4 @@ def main():
         else:
             print("Неверный ввод. Пожалуйста, выберите 1, 2 или 3.")
 
-
-if __name__ == "__main__":
-    main()
+main()
