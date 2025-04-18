@@ -24,7 +24,7 @@ class Cicle(Shape): #окружность
     def __init__(self, rad):
         self.rad = rad
     def area(self):
-        return self.rad * math.pi**2
+        return self.rad**2 * math.pi
     def perimeter(self):
         return 2 * math.pi * self.rad
     def __str__(self):
