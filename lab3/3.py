@@ -79,7 +79,7 @@ def print_shape_info(shape): #ура полиморфизму
         print(f"\n{shape}")
         print(f"Площадь: {shape.area():.2f}")
         print(f"Периметр: {shape.perimeter():.2f}")
-
-shape = choose_shape()
-if shape != None:
-    print_shape_info(shape)
+if __name__ == "__main__":  # пример
+    shape = choose_shape()
+    if shape != None:
+        print_shape_info(shape)
