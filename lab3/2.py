@@ -49,7 +49,8 @@ class Teacher(Person):
             s.display_info() #для объекта студент используем метод класса студент
             
 #пример
-teach = Teacher("Прощаев Александр Аркадьевич", 35, "Базы данных")
-student = Student("Лизочка Пронина", 18, 100)
-teach.add_student(student)
-teach.list_students()
+if __name__ == "__main__":  # пример
+    teach = Teacher("Прощаев Александр Аркадьевич", 35, "Базы данных")
+    student = Student("Лизочка Пронина", 18, 100)
+    teach.add_student(student)
+    teach.list_students()
