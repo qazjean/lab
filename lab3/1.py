@@ -17,9 +17,9 @@ class Student:
         print(f"id студента: {self.student_id}")
         print(f"Его средний балл: {self.get_average()}")
         print(f"Оценки: {', '.join(map(str, self.grades))}")
-
-student = Student("Лизочка Пронина", "1511") #опробуем
-student.add_grade(10)
-student.add_grade(6)
-student.add_grade(1000)
-student.display_info()
+if __name__ == "__main__":  # пример
+    student = Student("Лизочка Пронина", "1511") #опробуем
+    student.add_grade(10)
+    student.add_grade(6)
+    student.add_grade(1000)
+    student.display_info()
