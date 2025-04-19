@@ -1,7 +1,7 @@
 import subprocess
 import sys
 def Choose():
-    print("В какую игру вы хотите поиграть? 1 - Угадай число, 2 - Блекджек, 3 - Я больше не хочу играть")
+    print("В какую игру вы хотите поиграть? 1 - Угадай число, 2 - Блекджек, 3 - Крестики-нолик, 4 - Я больше не хочу играть")
 
 
 def run_game(game_file):
@@ -16,6 +16,8 @@ def main():
         elif t == '2':
             run_game("2.py")
         elif t == '3':
+            run_game("4withcomputer.py")
+        elif t == "4":
             print("Спасибо за игру!")
             break
         else:
