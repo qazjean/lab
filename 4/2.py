@@ -1,20 +1,16 @@
 import random
-
-class Card:
-    def __init__(self, rank):
-        self.rank = rank
+class Card: #класс карты. Сюда можно было бы определить плучение значения для дам и тд, но в упрощенной версии этого нет)
+    def __init__(self, value):
+        self.value = value
     def __str__(self):
         return f"{self.rank}"
 
-    def value(self):
-        return int(self.rank)
-
-class Deck:
+class Deck:  #класс для "колоды" ( по факту - рандомное число
     def shuffle(self):
-        return random.randint(1, 10)
+        return random.randint(2, 11)
 
 
-class Hand:
+class Hand: #класс для "карт в руках"
     def __init__(self):
         self.value = 0
 
@@ -22,7 +18,7 @@ class Hand:
         self.value += card
 
 
-class Chips:
+class Chips: #класс для фишек (в начале их 100, но пользователь может выиграть/проиграть)
     def __init__(self):
         try:
             with open("chips.txt") as f:
@@ -58,13 +54,11 @@ def hit(deck, hand):
     hand.add_card(deck.shuffle())
 
 
-
 def hit_or_stand(deck, hand):
     global playing
 
     while True:
         x = input("Берёте ещё или останавливаетесь? Введите 'да' или 'нет': ").lower()
-
         if x == 'да':
             hit(deck, hand)
         elif x == 'нет':
@@ -77,7 +71,7 @@ def hit_or_stand(deck, hand):
 
 
 
-def show_some(player):
+def show_some(player):  #тк во время игры игрок не видит очки сопернкика
     print("Очки игрока:", player.value)
 
 
@@ -86,7 +80,7 @@ def show_all(player, dealer):
     print("Очки игрока:", player.value)
 
 
-def player_busts(chips):
+def player_loose(chips):
     print("Игрок проиграл!")
     chips.lose_bet()
 
@@ -103,10 +97,7 @@ def main():
 
     print("Игра в Блэкджек!")
 
-
     deck = Deck()
-
-
     player_hand = Hand()
     dealer_hand = Hand()
 
@@ -118,9 +109,8 @@ def main():
 
     # Создаём фишки игрока
     player_chips = Chips()
-
+    # Делаем ставки
     take_bet(player_chips)
-
 
     show_some(player_hand)
 
@@ -133,7 +123,7 @@ def main():
         show_some(player_hand)
 
         if player_hand.value > 21:
-            player_busts(player_chips)
+            player_loose(player_chips)
             break
 
     if player_hand.value <= 21:
@@ -144,18 +134,14 @@ def main():
         show_all(player_hand, dealer_hand)
 
         # Проверяем исход игры
-        if dealer_hand.value > 21:
+        if dealer_hand.value > 21 or dealer_hand.value < player_hand.value:
             player_wins(player_chips)
         elif dealer_hand.value > player_hand.value:
-            player_busts(player_chips)
-        elif dealer_hand.value < player_hand.value:
-            player_wins(player_chips)
+            player_loose(player_chips)
         else:
             push()
 
     # Показываем общее количество фишек
     print(f"\nУ игрока осталось фишек: {player_chips.total}")
     player_chips.save_chips()
-
-if __name__ == "__main__":
-    main()
+main()
