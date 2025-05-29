@@ -1,0 +1,20 @@
+#!pip install tk
+import tkinter as tk
+def btn_click():
+    new_data = field.get()
+    print(new_data)
+    text['text'] = new_data
+root = tk.Tk()
+root.title("devchuli")
+root.geometry("800x500+500+300")
+root.resizable(False, False)
+root.config(bg = "pink")
+text = tk.Label(root, text = "devchuli tooop", bg = "pink", fg = "white", font=("arial", 24, 'bold'))
+text2 = tk.Label(root, text = "giiirrrrls", bg = "black", fg = "pink", font=("arial", 28, 'italic'))
+btn1 = tk.Button(root, text = "Hihihaha", bg = "black", fg = "pink", font=("arial", 28, 'italic'), command = btn_click)
+field = tk.Entry(root, font = ("Arial", 20, "italic"), bg = "white")
+field.pack()
+btn1.pack()
+text.pack()
+text2.pack()
+root.mainloop()
